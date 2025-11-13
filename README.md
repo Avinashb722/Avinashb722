@@ -9,7 +9,7 @@
 ### 🚀 About Me
 
 🎓 **Final Year Computer Science Engineering Student** (CGPA: 8.28/10)  
-💡 **Passionate about:** AI/ML, Web Development, IoT Robotics & Automation  
+💡 **Passionate about:** AI/ML, Web Development 
 🔍 **Currently exploring:** Advanced Machine Learning, Cloud Technologies, DevOps  
 🎯 **Seeking opportunities in:** Software Development, AI/ML Engineering, Full-Stack Development  
 
@@ -85,7 +85,7 @@
 - 🔭 Building advanced AI applications with modern frameworks
 - 🌱 Learning cloud technologies (AWS, Docker, Kubernetes)
 - 👯 Open to collaborating on innovative AI/ML projects
-- 💬 Ask me about Python, AI development, or robotics
+- 💬 Ask me about Python, AI development
 - ⚡ Fun fact: I love automating everything!
 
 ---
