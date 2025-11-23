@@ -22,35 +22,35 @@
 - **Impact:** Provides instant emergency response for women's safety
 - **Tech:** React.js, Node.js, MongoDB
 - **Features:** Instant SMS/Email alerts, trusted contacts, secure authentication, fast responsive UI
-- [🔗 View Project](https://github.com/Avinashb722/suraksha)
+- [🔗 View Project](https://github.com/Avinashb722/suraksha-women-safety-web)
 
 #### 🤖 **AI ChatGPT Clone**
 *Multi-model AI chat application*
 - **Impact:** Delivers intelligent conversational AI with advanced features
 - **Tech:** Python Flask, HTML/CSS/JS
 - **Features:** Local + cloud models, file upload, OCR extraction, multi-language support, modern UI with smart suggestions
-- [🔗 View Project](https://github.com/Avinashb722/chatgpt-clone)
+- [🔗 View Project](https://github.com/Avinashb722/chatgpt_clone)
 
 #### 🤖 **IRIS – AI Desktop Assistant**
 *Intelligent voice-controlled desktop assistant with natural language processing*
 - **Impact:** Automates daily tasks and provides intelligent responses
 - **Tech:** Python, OpenAI API, NLP, Speech Recognition, Tkinter
 - **Features:** Voice commands, task automation, smart responses
-- [🔗 View Project](https://github.com/Avinashb722/iris-ai-assistant)
+- [🔗 View Project](https://github.com/Avinashb722/jarvis-ai-assistant)
 
 #### 🚗 **Autonomous Navigation Robot**
 *Smart robot with path-following and obstacle detection capabilities*
 - **Impact:** Demonstrates practical IoT and robotics implementation
 - **Tech:** Arduino, C++, IR/Ultrasonic Sensors, Motor Control
 - **Features:** Line following, obstacle avoidance, autonomous navigation
-- [🔗 View Project](https://github.com/Avinashb722/autonomous-robot)
+- [🔗 View Project](https://github.com/Avinashb722/line-following-robot)
 
 #### 📚 **VTUCRACK – Academic Portal**
 *Comprehensive educational platform for engineering students*
 - **Impact:** Serves 1000+ students with academic resources
 - **Tech:** PHP, MySQL, JavaScript, Bootstrap, HTML5/CSS3
 - **Features:** Notes repository, question banks, project guidance
-- [🔗 View Project](https://github.com/Avinashb722/vtucrack-portal)
+- [🔗 View Project](https://vtucrack.com)
 
 ---
 
