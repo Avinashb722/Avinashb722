@@ -1,0 +1,490 @@
+<svg viewBox="0 0 1180 610" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="background-color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Background Glows -->
+    <radialGradient id="glow-blue" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-cyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow-emerald" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.05" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Moving Border Shimmer -->
+    <linearGradient id="border-shimmer" x1="-100%" y1="-100%" x2="0%" y2="0%">
+      <animate attributeName="x1" values="-100%; 200%; -100%" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="y1" values="-100%; 200%; -100%" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="x2" values="0%; 300%; 0%" dur="8s" repeatCount="indefinite" />
+      <animate attributeName="y2" values="0%; 300%; 0%" dur="8s" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="rgba(15, 23, 42, 0.06)" />
+      <stop offset="50%" stop-color="rgba(37, 99, 235, 0.3)" />
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.06)" />
+    </linearGradient>
+
+    <!-- Panels Border Shimmer -->
+    <linearGradient id="panel-border-shimmer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 0.5 0.5" to="360 0.5 0.5" dur="12s" repeatCount="indefinite" />
+      <stop offset="0%" stop-color="rgba(15, 23, 42, 0.06)" />
+      <stop offset="50%" stop-color="rgba(6, 182, 212, 0.25)" />
+      <stop offset="100%" stop-color="rgba(15, 23, 42, 0.06)" />
+    </linearGradient>
+
+    <!-- ASCII Gradient (Blue-Cyan-Emerald shift) -->
+    <linearGradient id="ascii-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB">
+        <animate attributeName="stop-color" values="#2563EB; #06B6D4; #10B981; #2563EB" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="50%" stop-color="#06B6D4">
+        <animate attributeName="stop-color" values="#06B6D4; #10B981; #2563EB; #06B6D4" dur="8s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#10B981">
+        <animate attributeName="stop-color" values="#10B981; #2563EB; #06B6D4; #10B981" dur="8s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Name / Text Gradient -->
+    <linearGradient id="text-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Scanline Sweep Gradient -->
+    <linearGradient id="scanline-sweep-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0" />
+      <stop offset="50%" stop-color="#06B6D4" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0" />
+    </linearGradient>
+
+    <!-- Glass Specular Reflection -->
+    <linearGradient id="glass-specular" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.0)" />
+      <stop offset="45%" stop-color="rgba(255,255,255,0.0)" />
+      <stop offset="50%" stop-color="rgba(255,255,255,0.08)" />
+      <stop offset="55%" stop-color="rgba(255,255,255,0.0)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.0)" />
+      <animateTransform attributeName="gradientTransform" type="translate" values="-1.5,0; 1.5,0" dur="12s" repeatCount="indefinite" />
+    </linearGradient>
+
+    <!-- Noise Filter -->
+    <filter id="noise-filter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" result="noise" />
+      <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.02 0" />
+    </filter>
+
+    <!-- Glow Filters (Softer for Light Mode) -->
+    <filter id="pill-glow-light" x="-15%" y="-15%" width="130%" height="130%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <filter id="icon-glow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Typing Clips for Right Side -->
+    <clipPath id="clip-role1">
+      <rect x="530" y="140" width="0" height="30">
+        <animate attributeName="width" values="0; 226; 226; 0; 0" keyTimes="0; 0.12; 0.28; 0.32; 1" dur="12s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <clipPath id="clip-role2">
+      <rect x="530" y="140" width="0" height="30">
+        <animate attributeName="width" values="0; 0; 183; 183; 0; 0" keyTimes="0; 0.33; 0.45; 0.61; 0.65; 1" dur="12s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <clipPath id="clip-role3">
+      <rect x="530" y="140" width="0" height="30">
+        <animate attributeName="width" values="0; 0; 194; 194; 0; 0" keyTimes="0; 0.66; 0.78; 0.94; 0.98; 1" dur="12s" repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+
+    <!-- Typing Clip for Left Side Prompt -->
+    <clipPath id="left-prompt-clip">
+      <rect x="235" y="60" width="0" height="30">
+        <animate attributeName="width" values="0; 156; 156" keyTimes="0; 0.8; 1" dur="1.2s" fill="freeze" />
+      </rect>
+    </clipPath>
+  </defs>
+
+  <style>
+    .pill-group {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      transform-origin: center;
+      transform-box: fill-box;
+      cursor: pointer;
+    }
+    .pill-group:hover {
+      transform: scale(1.08);
+    }
+    .pill-group:hover .skill-pill {
+      fill: rgba(6, 182, 212, 0.08) !important;
+      stroke: #06B6D4 !important;
+      filter: url(#pill-glow-light);
+    }
+    .pill-group:hover .skill-text {
+      fill: #0F172A !important;
+    }
+    .skill-pill {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: rgba(15, 23, 42, 0.03);
+      stroke: rgba(15, 23, 42, 0.06);
+      stroke-width: 1;
+    }
+    .skill-text {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: #475569;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      font-weight: 550;
+      text-anchor: middle;
+      dominant-baseline: middle;
+      pointer-events: none;
+    }
+    .social-link {
+      cursor: pointer;
+    }
+    .social-box {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: rgba(15, 23, 42, 0.02);
+      stroke: rgba(15, 23, 42, 0.05);
+      stroke-width: 1;
+    }
+    .social-icon {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      fill: #475569;
+      pointer-events: none;
+    }
+    .social-link:hover .social-box {
+      fill: rgba(37, 99, 235, 0.08) !important;
+      stroke: #2563EB !important;
+      filter: url(#icon-glow-light);
+    }
+    .social-link:hover .social-icon {
+      fill: #0F172A !important;
+    }
+    .ascii-art {
+      font-family: "JetBrains Mono", "Fira Code", "Fira Mono", "SF Mono", Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 7.2px;
+      font-weight: 700;
+      fill: url(#ascii-gradient);
+      text-anchor: middle;
+    }
+  </style>
+
+  <!-- Ambient Glow Background Circles -->
+  <circle cx="200" cy="150" r="320" fill="url(#glow-blue)">
+    <animate attributeName="r" values="320; 370; 320" dur="10s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.7; 1; 0.7" dur="10s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="950" cy="480" r="380" fill="url(#glow-cyan)">
+    <animate attributeName="r" values="380; 430; 380" dur="12s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.6; 0.9; 0.6" dur="12s" repeatCount="indefinite" />
+  </circle>
+  <circle cx="590" cy="550" r="280" fill="url(#glow-emerald)">
+    <animate attributeName="r" values="280; 330; 280" dur="14s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5; 0.8; 0.5" dur="14s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Background Particles -->
+  <circle cx="150" cy="120" r="2" fill="#2563EB" opacity="0.4"><animate attributeName="cy" values="120;140;100;120" dur="8s" repeatCount="indefinite"/><animate attributeName="cx" values="150;160;140;150" dur="10s" repeatCount="indefinite"/></circle>
+  <circle cx="850" cy="180" r="1.5" fill="#06B6D4" opacity="0.5"><animate attributeName="cy" values="180;160;200;180" dur="9s" repeatCount="indefinite"/><animate attributeName="cx" values="850;870;830;850" dur="11s" repeatCount="indefinite"/></circle>
+  <circle cx="450" cy="450" r="2.5" fill="#10B981" opacity="0.3"><animate attributeName="cy" values="450;480;420;450" dur="11s" repeatCount="indefinite"/><animate attributeName="cx" values="450;430;470;450" dur="13s" repeatCount="indefinite"/></circle>
+  <circle cx="1050" cy="100" r="2" fill="#2563EB" opacity="0.4"><animate attributeName="cy" values="100;120;80;100" dur="10s" repeatCount="indefinite"/><animate attributeName="cx" values="1050;1030;1070;1050" dur="12s" repeatCount="indefinite"/></circle>
+  <circle cx="250" cy="500" r="1.5" fill="#06B6D4" opacity="0.5"><animate attributeName="cy" values="500;480;520;500" dur="7s" repeatCount="indefinite"/><animate attributeName="cx" values="250;270;230;250" dur="9s" repeatCount="indefinite"/></circle>
+  <circle cx="650" cy="120" r="2" fill="#10B981" opacity="0.4"><animate attributeName="cy" values="120;100;140;120" dur="12s" repeatCount="indefinite"/><animate attributeName="cx" values="650;670;630;650" dur="14s" repeatCount="indefinite"/></circle>
+
+  <!-- Noise Overlay -->
+  <rect width="1180" height="610" rx="24" filter="url(#noise-filter)" opacity="0.3" pointer-events="none" />
+
+  <!-- LEFT SIDE PANEL (ASCII Terminal) -->
+  <g>
+    <!-- Floating Animation for entire left panel container -->
+    <animateTransform attributeName="transform" type="translate" values="0,0; 0,-6; 0,0" dur="6s" repeatCount="indefinite" />
+    
+    <!-- Left Glass Panel Rect -->
+    <rect x="40" y="40" width="410" height="530" rx="16" fill="#F8FAFC" fill-opacity="0.8" stroke="url(#panel-border-shimmer)" stroke-width="1.2" />
+
+    <!-- Sweeping Laser Scanline -->
+    <rect x="41" y="41" width="408" height="4" fill="url(#scanline-sweep-grad)" opacity="0.25">
+      <animate attributeName="y" values="41; 565; 41" dur="6s" repeatCount="indefinite" />
+    </rect>
+
+    <!-- Terminal Prompt Header -->
+    <g>
+      <!-- Prompt text: avinashb722@AITM:~$ -->
+      <text x="60" y="80" fill="#10B981" font-size="13" font-weight="700" font-family="'JetBrains Mono', monospace">avinashb722@AITM:~$</text>
+      <!-- Command typed: ./display_avatar.sh -->
+      <text x="235" y="80" fill="#0F172A" font-size="13" font-weight="700" font-family="'JetBrains Mono', monospace" clip-path="url(#left-prompt-clip)">./display_avatar.sh</text>
+      <!-- Typing cursor for prompt -->
+      <rect y="68" width="8" height="13" fill="#0F172A">
+        <animate attributeName="x" values="235; 391; 391" keyTimes="0; 0.8; 1" dur="1.2s" fill="freeze" />
+        <animate attributeName="opacity" values="1;0;1;0" dur="0.8s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Monospace ASCII Human Face Portrait (Reveals line-by-line) -->
+    <g opacity="0" filter="url(#pill-glow-light)">
+      <animate attributeName="opacity" values="0;0;1" dur="1.2s" fill="freeze" begin="0.8s"/>
+      
+      <text class="ascii-art" x="245" y="115.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.30s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UwJnvvXuuuxFnXzc&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="124.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.33s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;kUCxnT!fTTtttFt!fFjTl!&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="134.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.36s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CzxfTrrx!lll!!IlllI!!I!!lt&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="144.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.39s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;JCCrTnTfttII!IlIlIIIIIIIIIlII!&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="154.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.42s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;UUYf!tl!lIIIIliiiiIIIIIIIIIIIlIf&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="164.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.45s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cXYYjjFT!!IIIIIIIIIl!!!!lIIIiIIl&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="173.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.48s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CuUzvrxuvXxTfffTTfFFjjjFFFT!lIIl&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="183.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.51s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nuurnUppwCcnrrrrrxxxrrrrjjjjF!IIlt&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="193.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.54s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nFcxzwdpmUcunnnnnnnxxxrrrrrjjfIlII&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="203.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.57s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;FrncLqqmUzuunnnnnnnxxxxrrrrrjflIII&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="213.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.60s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;xTFnJwwLYcvvvuunnnnnnxxrrrrrrFlIII&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="222.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.63s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;crnnJmmQLUYXccvuuunnuunxxrrrrj!IIl&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="232.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.66s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;urXQmqpmYvXnxnnnnnxrjfTTTTjrrfIlt&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="242.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.69s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;trYwqUcxjf!!tTFrnnjfffFjrrrxrjIl&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="252.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.72s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cjLwJUvTIl!ltTFxvxjft!lt!FFxnrIl&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="262.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.75s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nucwqmCCznrjFFruXXvrjFjrrnxxxxxlff&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="271.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.78s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nUcwqpqLUzvvczXYUXvuxnnuuuuuunnffjW&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="281.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.81s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cxcmwwmLCJUXXUUQmXcvxnuvvvvvvun!fr&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="291.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.84s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cCuXmLCCCUXXcXwJXzccvvnuvvvvvuxlFn&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="301.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.87s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;qLUCLCCJUXzXXzvnnnxrrxxnuuuuxtTxc&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="311.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.90s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;QYcXJCLCCCXUCmYurrrrjjjrxnnnFlxv&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="320.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.93s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;YUUJJCYFfFrjjjFfTftIjrxxjFf&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="330.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.96s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;zXXUJuFxcUcvuuunrjjrrxrFTj&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="340.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="1.99s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;cuzXUcnvurjfffFjrrjjrrFT!&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="350.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.02s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;xvYUcuunnxrrxxrrjjjftT&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="360.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.05s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;CJnczzcurrrjjjjjFTtlFFv&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="369.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.08s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;YCYJcFTTTTfTfTT!l!TFFTtL&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="379.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.11s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p!LUUJzrtl!l!!!ttTfffTITLQ&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="389.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.14s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;kd!uUYUUrFFFFTffTfTffTliJQQQW&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="399.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.17s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;wkkkkkJ!rXYUcrFjFFFfFfffT!lzQQQQCQmm&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="409.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.20s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;khkkdbkkkLJtjnccnnunxjjFffTt!XJQQQQQJLQmQmw&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="418.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.23s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;WkkkbkbkqkkkkQCJtFxxnnuunxjFfTttJJLQQQQQCQLQLLmmmwq&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="428.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.26s"/>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;kkkdpmbkbdkhhhkkwLCJTFrxnuuuxrFfTTLQLLQQQQQQLLQQCJLLLLQmwq&#160;&#160;&#160;&#160;&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="438.4" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.29s"/>&#160;&#160;&#160;&#160;kkkddkdqmpkdqkkhhkLXXULCJrnnuuvvurjFjwqcuxuJQQQQLLQQLCCLLLCLLQQmmw&#160;&#160;&#160;</text>
+      <text class="ascii-art" x="245" y="448.2" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.32s"/>&#160;qkkkbqpkdmQwbkwdddqpwCYYYCLLCJnuvvcvuzpQXzzcXYYYUJJCLQQCCLLLLCCLQLLLmmm&#160;</text>
+      <text class="ascii-art" x="245" y="458.0" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.35s"/>wkkkbdQbdQQwwbbwqbbpqqwmCJCCCUQmuuvvcvpYYYUUUUUJCCLLLLQLCCLLCLLCLLCLLQQLQ</text>
+      <text class="ascii-art" x="245" y="467.8" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.38s"/>kkbdqdmdLLmmwkpwwbbpqwqwwQLLLQCCmJnuYLYYUUJJJJJLLLQLLQQQCCLCCCCLLCCCLQQCL</text>
+      <text class="ascii-art" x="245" y="477.6" opacity="0"><animate attributeName="opacity" values="0;1" dur="0.12s" fill="freeze" begin="2.41s"/>wbdqQpQLLLQmbbmmwpdpqwqwwwmQQQQQJQLCLCUUJJJJJCLQQQQQQQQQLLLLCCCLQCJCQQJCL</text>
+      
+      <!-- Name label -->
+      <text x="245" y="526"
+            fill="url(#ascii-gradient)"
+            font-size="12.5" font-weight="700"
+            font-family="'JetBrains Mono', Consolas, 'Courier New', monospace"
+            text-anchor="middle" letter-spacing="2">AVINASH BIRADAR</text>
+      <text x="245" y="546"
+            fill="#475569"
+            font-size="10"
+            font-family="'JetBrains Mono', Consolas, 'Courier New', monospace"
+            text-anchor="middle" letter-spacing="1">Full-Stack · AI · Engineer</text>
+    </g>
+  </g>
+
+  <!-- RIGHT SIDE PANEL (Professional Terminal Details) -->
+  <g>
+    <!-- Right Glass Panel Rect -->
+    <rect x="480" y="40" width="660" height="530" rx="16" fill="#F8FAFC" fill-opacity="0.8" stroke="url(#panel-border-shimmer)" stroke-width="1.2" />
+
+    <!-- macOS style window buttons -->
+    <circle cx="510" cy="65" r="6" fill="#FF5F56" />
+    <circle cx="530" cy="65" r="6" fill="#FFBD2E" />
+    <circle cx="550" cy="65" r="6" fill="#27C93F" />
+    <!-- Window Title -->
+    <text x="810" y="70" fill="#475569" font-size="12" font-weight="600" font-family="'JetBrains Mono', monospace" text-anchor="middle">bash - avinashb722@AITM</text>
+    
+    <!-- Separator Line -->
+    <line x1="480" y1="90" x2="1140" y2="90" stroke="rgba(15, 23, 42, 0.06)" stroke-width="1" />
+
+    <!-- Greeting Section -->
+    <g>
+      <!-- Hi 👋 I'm Avinash Biradar -->
+      <text x="510" y="125" fill="#0F172A" font-size="24" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Hi 👋 I'm <tspan fill="url(#text-gradient)">Avinash Biradar</tspan></text>
+    </g>
+
+    <!-- Typing Subtitles (12-second SMIL typing loop) -->
+    <g>
+      <!-- Prompt arrow: > -->
+      <text x="510" y="160" fill="#10B981" font-size="17" font-weight="700" font-family="'JetBrains Mono', monospace">&gt;</text>
+      
+      <!-- Phrase 1: Full-Stack Developer -->
+      <text x="530" y="160" fill="#0F172A" font-size="17" font-weight="600" font-family="'JetBrains Mono', monospace" clip-path="url(#clip-role1)" opacity="1">
+        Full-Stack Developer
+        <animate attributeName="opacity" values="1; 1; 0; 0" keyTimes="0; 0.33; 0.34; 1" dur="12s" repeatCount="indefinite" />
+      </text>
+      <!-- Phrase 2: Software Engineer -->
+      <text x="530" y="160" fill="#0F172A" font-size="17" font-weight="600" font-family="'JetBrains Mono', monospace" clip-path="url(#clip-role2)" opacity="0">
+        Software Engineer
+        <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.33; 0.34; 0.66; 0.67; 1" dur="12s" repeatCount="indefinite" />
+      </text>
+      <!-- Phrase 3: AI & ML Enthusiast -->
+      <text x="530" y="160" fill="#0F172A" font-size="17" font-weight="600" font-family="'JetBrains Mono', monospace" clip-path="url(#clip-role3)" opacity="0">
+        AI &amp; ML Enthusiast
+        <animate attributeName="opacity" values="0; 1; 1; 0" keyTimes="0; 0.66; 0.67; 0.99; 1" dur="12s" repeatCount="indefinite" />
+      </text>
+      
+      <!-- Blinking block cursor -->
+      <rect y="144" width="8" height="18" fill="#06B6D4">
+        <animate attributeName="x" values="530; 756; 756; 530; 530; 713; 713; 530; 530; 724; 724; 530" 
+                 keyTimes="0; 0.12; 0.28; 0.32; 0.33; 0.45; 0.61; 0.65; 0.66; 0.78; 0.94; 0.98" 
+                 dur="12s" repeatCount="indefinite" />
+        <animate attributeName="opacity" values="1; 0; 1; 0; 1; 0" dur="1s" repeatCount="indefinite" />
+      </rect>
+    </g>
+
+    <!-- Profile Info Items (Sequential slide + fade in starting at 1.2s) -->
+    <g>
+      <!-- Line 1: Location -->
+      <g opacity="0" transform="translate(0, 200)">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="1.2s" />
+        <animateTransform attributeName="transform" type="translate" values="0, 200; 0, 190" dur="0.4s" fill="freeze" begin="1.2s" />
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#2563EB" transform="translate(510, 0) scale(0.65)" />
+        <text x="532" y="12" fill="#475569" font-size="13" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Location:</text>
+        <text x="600" y="12" fill="#0F172A" font-size="13" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Belagavi, Karnataka</text>
+      </g>
+
+      <!-- Line 2: Education -->
+      <g opacity="0" transform="translate(0, 232)">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="1.4s" />
+        <animateTransform attributeName="transform" type="translate" values="0, 232; 0, 222" dur="0.4s" fill="freeze" begin="1.4s" />
+        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" fill="#2563EB" transform="translate(510, 0) scale(0.65)" />
+        <text x="532" y="12" fill="#475569" font-size="13" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Education:</text>
+        <text x="608" y="12" fill="#0F172A" font-size="13" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">B.E. in CSE, AITM Belagavi (CGPA: 8.53)</text>
+      </g>
+
+      <!-- Line 3: Current Focus -->
+      <g opacity="0" transform="translate(0, 264)">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="1.6s" />
+        <animateTransform attributeName="transform" type="translate" values="0, 264; 0, 254" dur="0.4s" fill="freeze" begin="1.6s" />
+        <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3-8c0 1.66-1.34 3-3 3s-3-1.34-3-3 1.34-3 3-3 3 1.34 3 3z" fill="#10B981" transform="translate(510, 0) scale(0.65)" />
+        <text x="532" y="12" fill="#475569" font-size="13" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Focus:</text>
+        <text x="582" y="12" fill="#0F172A" font-size="13" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">AI Assistants, Web Apps, ML</text>
+      </g>
+
+      <!-- Line 4: Portfolio -->
+      <g opacity="0" transform="translate(0, 296)">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="1.8s" />
+        <animateTransform attributeName="transform" type="translate" values="0, 296; 0, 286" dur="0.4s" fill="freeze" begin="1.8s" />
+        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" fill="#2563EB" transform="translate(510, 0) scale(0.65)" />
+        <text x="532" y="12" fill="#475569" font-size="13" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Portfolio:</text>
+        <text x="602" y="12" fill="#0F172A" font-size="13" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">github.com/Avinashb722</text>
+      </g>
+
+      <!-- Line 5: Email -->
+      <g opacity="0" transform="translate(0, 328)">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.0s" />
+        <animateTransform attributeName="transform" type="translate" values="0, 328; 0, 318" dur="0.4s" fill="freeze" begin="2.0s" />
+        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#2563EB" transform="translate(510, 0) scale(0.65)" />
+        <text x="532" y="12" fill="#475569" font-size="13" font-weight="600" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Email:</text>
+        <text x="580" y="12" fill="#0F172A" font-size="13" font-weight="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">avinashbiradar722@gmail.com</text>
+      </g>
+    </g>
+
+    <!-- Technical Skills Section Header -->
+    <g opacity="0">
+      <animate attributeName="opacity" values="0; 1" dur="0.5s" fill="freeze" begin="2.2s" />
+      <text x="510" y="370" fill="#475569" font-size="11" font-weight="700" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" letter-spacing="1.5">TECHNICAL SKILLS</text>
+    </g>
+
+    <!-- Skill Pills (Staggered fade-in starting at 2.3s) -->
+    <g>
+      <!-- Row 1 -->
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.30s" />
+        <rect class="skill-pill" x="510" y="390" width="80" height="30" rx="15" />
+        <text class="skill-text" x="550" y="405">React.js</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.35s" />
+        <rect class="skill-pill" x="602" y="390" width="80" height="30" rx="15" />
+        <text class="skill-text" x="642" y="405">Node.js</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.40s" />
+        <rect class="skill-pill" x="694" y="390" width="75" height="30" rx="15" />
+        <text class="skill-text" x="731.5" y="405">Python</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.45s" />
+        <rect class="skill-pill" x="781" y="390" width="95" height="30" rx="15" />
+        <text class="skill-text" x="828.5" y="405">JavaScript</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.50s" />
+        <rect class="skill-pill" x="888" y="390" width="90" height="30" rx="15" />
+        <text class="skill-text" x="933" y="405">Express.js</text>
+      </g>
+
+      <!-- Row 2 -->
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.55s" />
+        <rect class="skill-pill" x="510" y="432" width="85" height="30" rx="15" />
+        <text class="skill-text" x="552.5" y="447">MongoDB</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.60s" />
+        <rect class="skill-pill" x="607" y="432" width="55" height="30" rx="15" />
+        <text class="skill-text" x="634.5" y="447">SQL</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.65s" />
+        <rect class="skill-pill" x="674" y="432" width="50" height="30" rx="15" />
+        <text class="skill-text" x="699" y="447">Git</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.70s" />
+        <rect class="skill-pill" x="736" y="432" width="65" height="30" rx="15" />
+        <text class="skill-text" x="768.5" y="447">Flask</text>
+      </g>
+      <g class="pill-group" opacity="0">
+        <animate attributeName="opacity" values="0; 1" dur="0.4s" fill="freeze" begin="2.75s" />
+        <rect class="skill-pill" x="813" y="432" width="100" height="30" rx="15" />
+        <text class="skill-text" x="863" y="447">TensorFlow</text>
+      </g>
+    </g>
+
+    <!-- Social Icons (Bottom row starting at 2.9s) -->
+    <g opacity="0">
+      <animate attributeName="opacity" values="0; 1" dur="0.5s" fill="freeze" begin="2.90s" />
+      
+      <!-- GitHub Icon -->
+      <a class="social-link" href="https://github.com/Avinashb722" target="_blank">
+        <rect class="social-box" x="510" y="495" width="36" height="36" rx="8" />
+        <path class="social-icon" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.577.688.479C19.138 20.164 22 16.418 22 12c0-5.523-4.477-10-10-10z" transform="translate(516, 501) scale(1)" />
+      </a>
+
+      <!-- LinkedIn Icon -->
+      <a class="social-link" href="https://linkedin.com/in/avinash-biradar722" target="_blank">
+        <rect class="social-box" x="556" y="495" width="36" height="36" rx="8" />
+        <path class="social-icon" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" transform="translate(562, 501) scale(1)" />
+      </a>
+
+      <!-- Twitter Icon -->
+      <a class="social-link" href="https://twitter.com" target="_blank">
+        <rect class="social-box" x="602" y="495" width="36" height="36" rx="8" />
+        <path class="social-icon" d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" transform="translate(608, 501) scale(1)" />
+      </a>
+
+      <!-- Portfolio Icon -->
+      <a class="social-link" href="https://github.com/Avinashb722" target="_blank">
+        <rect class="social-box" x="648" y="495" width="36" height="36" rx="8" />
+        <path class="social-icon" d="M12 2a10 10 0 100 20 10 10 0 000-20zm7.88 7H16.24a14.2 14.2 0 00-1.42-4.14 8 8 0 015.06 4.14zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96H10.09c.43-1.43 1.08-2.76 1.91-3.96zM4.12 9h3.64a14.2 14.2 0 001.42-4.14 8 8 0 00-5.06 4.14zM3.12 11h4.12a14.53 14.53 0 000 2H3.12a8 8 0 010-2zm1 4h3.64c.32 1.57.8 2.97 1.42 4.14a8 8 0 01-5.06-4.14zm5.97 4.14c-.83-1.2-1.48-2.53-1.91-3.96h7.64c-.43 1.43-1.08 2.76-1.91 3.96zm4.67-4.14c.62-1.17 1.1-2.57 1.42-4.14h3.64a8 8 0 01-5.06 4.14zm1.12-2.14a14.53 14.53 0 000-2h4.12a8 8 0 010 2h-4.12z" transform="translate(654, 501) scale(1)" />
+      </a>
+    </g>
+  </g>
+
+  <!-- Specular Glass Reflection Over both panels -->
+  <rect width="1180" height="610" rx="24" fill="url(#glass-specular)" opacity="0.8" pointer-events="none" />
+
+  <!-- Outer Shimmering Border Rect -->
+  <rect x="0.75" y="0.75" width="1178.5" height="608.5" rx="23.25" fill="none" stroke="url(#border-shimmer)" stroke-width="1.5" pointer-events="none" />
+</svg>

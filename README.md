@@ -1,3 +1,9 @@
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="light.svg">
+  <img alt="Avinash Biradar Profile Banner" src="dark.svg" width="100%">
+</picture>
+
 # Hi there! 👋 I'm Avinash Biradar
 
 ## 🎯 Software Engineer | AI Developer | Full-Stack Enthusiast
